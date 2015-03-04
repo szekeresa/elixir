@@ -15,6 +15,7 @@ var MergeRequest = require('./commands/MergeRequest');
 
 elixir.extend('scripts', function(scripts, outputDir, baseDir) {
     outputDir = outputDir || elixir.config.jsOutput;
+    baseDir = baseDir || elixir.config.assetsDir + 'js';
 
     return combine(mergeRequest(scripts, outputDir, baseDir));
 });
