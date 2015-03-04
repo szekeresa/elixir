@@ -15,6 +15,7 @@ var MergeRequest = require('./commands/MergeRequest');
 
 elixir.extend('styles', function(styles, outputDir, baseDir) {
     outputDir = outputDir || elixir.config.cssOutput;
+    baseDir = baseDir || elixir.config.assetsDir + 'css';
 
     return combine(mergeRequest(styles, outputDir, baseDir));
 });
