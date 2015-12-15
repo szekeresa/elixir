@@ -16,9 +16,9 @@ var config = Elixir.config;
  */
 
 Elixir.extend('coffee', function(src, output, options) {
-    var paths = prepGulpPaths(src, output);
-
     new Elixir.Task('coffee', function() {
+        var paths = prepGulpPaths(src, output);
+
         this.log(paths.src, paths.output);
 
         return (
@@ -38,8 +38,7 @@ Elixir.extend('coffee', function(src, output, options) {
             .pipe(new Elixir.Notification('CoffeeScript Compiled!'))
         );
     })
-    .watch(paths.src.path)
-    .ignore(paths.output.path);
+    .watch(config.get('assets.js.coffee.folder') + '/**/*.coffee')
 });
 
 
